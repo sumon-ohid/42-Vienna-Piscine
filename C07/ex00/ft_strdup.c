@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 19:44:31 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/09 17:14:04 by msumon           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,7 +36,7 @@ char	*ft_strdup(char *src)
 	return (dup);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char	*str;
 
@@ -60,6 +49,4 @@ char	*ft_strdup(char *src)
 	printf("%s\n", str);
 	free(str);
 	return (0);
-} */
-
-// <stddef.h>
+}
