@@ -6,7 +6,7 @@
 /*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 10:50:27 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/06 16:05:26 by msumon           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:39:36 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,25 @@
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	bound;
-	int	index;
-	int	*buffer;
-	int	*d;
+	int	i;
+	int	len;
 
 	if (min >= max)
 	{
-		*range = 0;
+		*range = NULL;
 		return (0);
 	}
-	bound = max - min;
-	d = ((buffer = malloc(bound * sizeof(int))));
-	if (!d)
-	{
-		*range = 0;
+	len = max - min;
+	*range = (int *)malloc(sizeof(int) * len);
+	if (*range == NULL)
 		return (-1);
-	}
-	*range = buffer;
-	index = 0;
-	while (index < bound)
+	i = 0;
+	while (i < len)
 	{
-		buffer[index] = min + index;
-		index++;
+		(*range)[i] = min + i;
+		i++;
 	}
-	return (bound);
+	return (len);
 }
 
 /* int	main(void)

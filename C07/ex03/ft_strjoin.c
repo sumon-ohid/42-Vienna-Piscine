@@ -5,103 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 10:50:41 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/06 16:05:43 by msumon           ###   ########.fr       */
+/*   Created: 2023/05/09 13:40:00 by msumon            #+#    #+#             */
+/*   Updated: 2023/05/09 16:32:58 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_str_length(char *str)
+int	ft_strlen(char *str)
 {
-	int	index;
+	int	i;
 
-	index = 0;
-	while (str[index])
-		index++;
-	return (index);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
-	int	index;
+	int	i;
+	int	j;
 
-	index = 0;
-	while (src[index] != '\0')
+	i = 0;
+	while (dest[i] != '\0')
 	{
-		dest[index] = src[index];
-		index++;
+		i++;
 	}
-	dest[index] = '\0';
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
 	return (dest);
 }
 
-int	ft_compute_final_length(char **strings, int size, int sep_length)
+char	*ft_strdup(char *src)
 {
-	int	final_length;
-	int	index;
+	int		i;
+	int		len;
+	char	*dup;
 
-	final_length = 0;
-	index = 0;
-	while (index < size)
+	len = ft_strlen(src);
+	dup = malloc(len + 1);
+	if (dup == NULL)
 	{
-		final_length += ft_str_length(strings[index]);
-		final_length += sep_length;
-		index++;
+		return (NULL);
 	}
-	final_length -= sep_length;
-	return (final_length);
+	i = 0;
+	while (src[i] != '\0' && i < len)
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		full_length;
-	int		index;
-	char	*string;
-	char	*d;
+	int		i;
+	char	*str;
 
 	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	full_length = ft_compute_final_length(strs, size, ft_str_length(sep));
-	d = ((string = (char *)malloc((full_length + 1) * sizeof(char))));
-	if (!d)
-		return (0);
-	index = 0;
-	while (index < size)
+		return (str = (char *)malloc(1));
+	i = 0;
+	while (i < size)
 	{
-		ft_strcpy(d, strs[index]);
-		d += ft_str_length(strs[index]);
-		if (index < size - 1)
+		if (!str)
+			str = ft_strdup(strs[i]);
+		else
 		{
-			ft_strcpy(d, sep);
-			d += ft_str_length(sep);
+			str = ft_strcat(str, sep);
+			str = ft_strcat(str, strs[i]);
 		}
-		index++;
+		i++;
 	}
-	*d = '\0';
-	return (string);
+	return (str);
 }
 
 /* int	main(void)
 {
-	int		index;
-	char	**strs;
-	char	*separator;
-	char	*result;
-	int		size;
-
-	size = 3;
-	strs = (char **)malloc(3 * sizeof(char *));
-	strs[0] = (char *)malloc(sizeof(char) * 5 + 1);
-	strs[1] = (char *)malloc(sizeof(char) * 7 + 1);
-	strs[2] = (char *)malloc(sizeof(char) * 14 + 1);
-	strs[0] = "Hello";
-	strs[1] = "friend,";
-	strs[2] = "you are awesome";
-	separator = " ";
-	result = ft_strjoin(size, strs, separator);
-	printf("%s$\n", result);
+	char *strs[] = {"Hello", "world!", "Don't", "Panic.", NULL};
+	char *sep = " ";
+	char *result = ft_strjoin(4, strs, sep);
+	if (result == NULL)
+	{
+		printf("Error: ft_strjoin returned NULL.\n");
+		return (1);
+	}
+	printf("%s\n", result);
 	free(result);
-}
- */
+	return (0);
+} */

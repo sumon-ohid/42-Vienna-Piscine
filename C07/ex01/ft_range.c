@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:26:39 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/06 14:53:44 by msumon           ###   ########.fr       */
+/*   Created: 2023/05/09 13:11:53 by msumon            #+#    #+#             */
+/*   Updated: 2023/05/09 13:28:41 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,45 @@
 
 int	*ft_range(int min, int max)
 {
-	int	range;
-	int	index;
-	int	*buffer;
-	int	*d;
+	int	*arr;
+	int	i;
 
-	if (min >= max)
-		return (0);
-	range = max - min;
-	d = ((buffer = malloc(range * sizeof(int))));
-	if (!d)
-		return (0);
-	index = 0;
-	while (index < range)
+	if (min > max)
+		return (NULL);
+	arr = (int *)malloc(sizeof(int) * (max - min + 1));
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (min <= max)
 	{
-		buffer[index] = min + index;
-		index++;
+		arr[i] = min;
+		min++;
+		i++;
 	}
-	return (buffer);
+	return (arr);
 }
 
 /* int	main(void)
 {
 	int	min;
 	int	max;
-	int	*tab;
+	int	*range;
 	int	i;
-	int	size;
 
-	i = 0;
-	min = 5;
-	max = 10;
-	size = max - min;
-	tab = ft_range(min, max);
-	while (i < size)
+	min = 2;
+	max = 20;
+	range = ft_range(min, max);
+	if (range == NULL)
 	{
-		printf("%d ", tab[i]);
+		printf("Error: Memory allocation failed\n");
+		return (1);
+	}
+	i = 0;
+	while (i < (max - min))
+	{
+		printf("%d ", range[i]);
 		i++;
 	}
+	free(range);
+	return (0);
 } */

@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 17:15:30 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/03 12:15:43 by msumon           ###   ########.fr       */
+/*   Created: 2023/05/08 19:44:31 by msumon            #+#    #+#             */
+/*   Updated: 2023/05/09 17:14:04 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int	ft_strlen(char *str)
 {
@@ -29,36 +28,38 @@ int	ft_strlen(char *str)
 char	*ft_strdup(char *src)
 {
 	int		i;
-	char	*dest;
-	char	*d;
+	int		len;
+	char	*dup;
 
+	len = ft_strlen(src);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (dup == NULL)
+	{
+		return (NULL);
+	}
 	i = 0;
-	d = ((dest = (char *)malloc(ft_strlen(src) * sizeof(char) * 1)));
-	if (!d)
+	while (src[i] != '\0' && i < len)
 	{
-		return (0);
-	}
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
+		dup[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dup[i] = '\0';
+	return (dup);
 }
 
-/* int	main(int argc, char *argv[])
+/* int	main(void)
 {
-	int		i;
-	char	*copy;
+	char	*str;
 
-	i = 1;
-	while (i < argc)
+	str = ft_strdup("Hello");
+	if (str == NULL)
 	{
-		copy = ft_strdup(argv[i]);
-		printf("%s\n", copy);
-		i++;
+		printf("Error: Memory allocation failed\n");
+		return (1);
 	}
+	printf("%s\n", str);
+	free(str);
 	return (0);
-}
- */
+} */
+
+// <stddef.h>
