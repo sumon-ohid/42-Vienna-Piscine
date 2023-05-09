@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msumon <msumon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 19:42:08 by msumon            #+#    #+#             */
-/*   Updated: 2023/05/06 19:42:57 by msumon           ###   ########.fr       */
+/*   Created: 2023/05/09 17:48:02 by msumon            #+#    #+#             */
+/*   Updated: 2023/05/09 18:05:43 by msumon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_boolean.h"
+#include "ft_stock_str.h"
+#include <stdio.h>
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
-
-t_bool	ft_is_even(int nbr)
-{
-	return ((EVEN(nbr)) ? TRUE : FALSE);
-}
+void				ft_show_tab(struct s_stock_str *par);
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
+void				ft_show_tab(struct s_stock_str *par);
 
 int	main(int argc, char **argv)
 {
-	(void)argv;
-	if (ft_is_even(argc - 1) == TRUE)
-		ft_putstr(EVEN_MSG);
-	else
-		ft_putstr(ODD_MSG);
-	return (SUCCESS);
+	struct s_stock_str	*tab;
+
+	tab = ft_strs_to_tab(argc, argv);
+	ft_show_tab(tab);
+	return (0);
 }
