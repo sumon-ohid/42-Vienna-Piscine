@@ -15,6 +15,5 @@ Whether students are beginners looking to kickstart their coding journey or expe
 
 # 42-Vienna-Piscine
 The Piscine is a 4-weeks immersive training bootcamp on campus in Vienna. Dive deep into coding with C and Unix and find out if learning with 42 is for you.
-
-# for more details click the link below...
+# Learn-more
 https://42.fr/en/admissions/42-piscine
