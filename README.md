@@ -12,3 +12,9 @@ The learning environment at 42 Vienna is highly supportive and inclusive. Studen
 Furthermore, 42 Vienna organizes various events, hackathons, and coding competitions that provide students with opportunities to showcase their skills, network with industry professionals, and gain real-world experience.
 
 Whether students are beginners looking to kickstart their coding journey or experienced programmers seeking to enhance their skills, 42 Vienna offers a dynamic and transformative educational experience. Through its innovative approach and commitment to empowering individuals, 42 Vienna prepares students for successful careers in the ever-expanding field of technology.
+
+# 42-Vienna-Piscine
+The Piscine is a 4-weeks immersive training bootcamp on campus in Vienna. Dive deep into coding with C and Unix and find out if learning with 42 is for you.
+
+# for more details click the link below...
+https://42.fr/en/admissions/42-piscine
